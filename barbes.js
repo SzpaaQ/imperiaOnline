@@ -71,7 +71,7 @@ SQ_barbySettings += '<div class="ui-bg ui-buttons not-working working"><a class=
 /* select minlevel and maxLevel */
 SQ_barbySettings += '<div class="ui-bg ui-buttons"><input type="text" value="8" onkeyup="SQ_setMinLevel(this)" title="Min Level" style="width:23px; height:23px;margin:1px;border-radius:2px;padding:0;border:none;outline:none;background:none"></div>';
 SQ_barbySettings += '<div class="ui-bg ui-buttons"><input type="text" value="10" onkeyup="SQ_setMaxLevel(this)" title="Max Level" style="width:23px; height:23px;margin:1px;border-radius:2px;padding:0;border:none;outline:none;background:none"></div>';
-SQ_barbySettings += '<div class="ui-bg ui-buttons" id="SQ_limit"><input type="text" value="1" onkeyup="SQ_setLimit(this)" title="Limit" style="display:none;width:23px; height:23px;margin:1px;border-radius:2px;padding:0;border:none;outline:none;background:none"></div>';
+SQ_barbySettings += '<div class="ui-bg ui-buttons" id="SQ_limit" style="display:none;"><input type="text" value="1" onkeyup="SQ_setLimit(this)" title="Limit" style="width:23px; height:23px;margin:1px;border-radius:2px;padding:0;border:none;outline:none;background:none"></div>';
 /* Amoun resource */
 SQ_barbySettings += '<br>SALE:<br><div class="ui-bg ui-buttons not-working" title="Price"><input type="text" id="SQ_amountResource" style="width:100%;height:100%;border:none;outline:none;" value="0.5"></div>';
 /* Select Resource Field */
