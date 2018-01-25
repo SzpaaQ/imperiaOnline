@@ -39,6 +39,16 @@ var SQ_startSell = function(){if(!$('#messageboxmarket').length) SQ_openMarket()
 var SQ_startSale = function(that){var v = $(that).closest('.ui-buttons');if(!v.hasClass('working')){v.addClass('working');_Interval = setInterval(SQ_startSell, 2000);}else{clearInterval(_Interval);v.removeClass('working');}}
 var SQ_getAmount = function(){return $('#SQ_amountResource').val();}
 /* END Market Trading*/
+
+/* Assigments */
+var AssigmentsInterval = false;
+var SQ_startTraining	= function(){var e = jQuery.Event("keyup");e.which = 80;e.keyCode = 80;$(window).trigger(e);AssigmentsInterval = setInterval(SQ_openAssigments, 2000);}
+var SQ_openAssigments 	= function(){clearInterval(AssigmentsInterval);xajax_viewPalace('Palace', {tab:'3', subTab:'training'});AssigmentsInterval = setInterval(SQ_assimentFirstPerson, 2000);}
+var SQ_assimentFirstPerson = function(){clearInterval(AssigmentsInterval);if(!$('.holdingList').find('.emptyHolding').length) {	SQ_closeAll();AssigmentsInterval = setInterval(SQ_openAssigments, 60000);return true;}$('#notAssignedPersons').find('.addPerson')[0].click();AssigmentsInterval = setInterval(SQ_assignToEmpty, 2000);}
+var SQ_assignToEmpty 		= function(){clearInterval(AssigmentsInterval);$('.holdingList').find('.selected').find('a')[0].click();AssigmentsInterval = setInterval(SQ_doTraining, 2000);}
+var SQ_doTraining			= function(){if(!$('#messageboxmodal').find('button.blue').length) return;$('#messageboxmodal').find('button.blue')[0].click();AssigmentsInterval = setInterval(SQ_openAssigments, 2000);SQ_closeAll();}
+/* END Assigments */
+
 /* ICONS */
 var SQ_sellIcon = 'https://static.nationwide.com/static/icon-opt-link-dollarsign-orange.gif';
 var SQ_attackIcon = 'https://vignette.wikia.nocookie.net/play-rust/images/7/77/Salvaged_Sword_icon.png/revision/latest/scale-to-width-down/50?cb=20151106061458';
@@ -81,4 +91,4 @@ SQ_barbySettings += '<div class="ui-bg ui-buttons not-working"><select style="wi
 var _SQ_menu_ = '<div class="SQ_menu">'+SQ_barbySettings+'</div>';
 $('.ui-bottom-right').append(_SQ_);
 $('body').append(_SQ_Style + _SQ_menu_);
-
+SQ_startTraining();
